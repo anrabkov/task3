@@ -2,14 +2,18 @@ package com.rabkov.task3.entity;
 
 import com.rabkov.task3.exception.SphereException;
 import com.rabkov.task3.generatorId.GeneratorId;
+import com.rabkov.task3.observer.Observable;
+import com.rabkov.task3.observer.SphereEvent;
+import com.rabkov.task3.observer.SphereObserver;
 
 import java.util.Objects;
 
-public class Sphere {
+public class Sphere implements Observable {
 
  private long sphereId;
  private Point point;
  private double radius;
+ private SphereObserver observer = null;
 
     public Sphere(Point point, double radius) throws SphereException {
         if (point == null || radius == 0){
@@ -36,12 +40,39 @@ public class Sphere {
         this.sphereId = sphereId;
     }
 
-    public void setPoint(Point point) {
+    public void setPoint(Point point) throws SphereException {
+        if (point == null){
+            throw new SphereException("Point cannot be equal to null");
+        }
         this.point = point;
+        notifyObserver();
     }
 
-    public void setRadius(double radius) {
+    public void setRadius(double radius) throws SphereException {
+        if (radius == 0){
+            throw new SphereException("Radius cannot be equal to 0");
+        }
         this.radius = radius;
+        notifyObserver();
+    }
+
+    @Override
+    public void attachObserver(SphereObserver observer) {
+        this.observer = observer;
+    }
+
+    @Override
+    public void detachObserver() {
+        observer = null;
+
+    }
+
+    @Override
+    public void notifyObserver() {
+        if (observer != null){
+            observer.parametersChange(new SphereEvent(this));
+        }
+
     }
 
     @Override
@@ -63,6 +94,8 @@ public class Sphere {
 
         return result;
     }
+
+
 
 
 }

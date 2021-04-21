@@ -33,15 +33,15 @@ public class SphereWarehouse implements Warehouse<ParametersOfSphere> {
     }
 
     @Override
-    public void put(Long id, ParametersOfSphere item) throws SphereException {
+    public void put(Long id, ParametersOfSphere parameters) throws SphereException {
         if (id == null) {
             throw new SphereException("Id cannot be equal to null");
         }
 
-        if (item == null) {
+        if (parameters == null) {
             throw new SphereException("Parameters of sphere cannot be equal to null");
         }
-        map.put(id, item);
+        map.put(id, parameters);
     }
 
     @Override
