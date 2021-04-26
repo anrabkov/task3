@@ -8,22 +8,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DataParser {
-    static  final String SPACE_REGEX = "\\s+";
-   static Logger logger = LogManager.getLogger();
-   private static RegexValidator regexValidator = new RegexValidator();
+    static final String SPACE_REGEX = "\\s+";
+    static Logger logger = LogManager.getLogger();
+    private static RegexValidator regexValidator;
 
-   public List<List<Double>> parseString(List<String> stringsFromFile){
-       List<List<Double>> listDoubleList = new ArrayList<>();
-       for (String string : stringsFromFile){
-           if (regexValidator.validateRegex(string)){
-               String[] stringArray = string.trim().split(SPACE_REGEX);
-               List<Double> doubleList = new ArrayList<>();
-               for (String s : stringArray){
-                   doubleList.add(Double.parseDouble(s));
-               }
-               listDoubleList.add(doubleList);
-           }
-       }
-       return listDoubleList;
-   }
+    public List<List<Double>> parseString(List<String> stringsFromFile) {
+        regexValidator = new RegexValidator();
+        List<List<Double>> listDoubleList = new ArrayList<>();
+        for (String string : stringsFromFile) {
+            if (regexValidator.validateRegex(string)) {
+                String[] stringArray = string.trim().split(SPACE_REGEX);
+                List<Double> doubleList = new ArrayList<>();
+                for (String s : stringArray) {
+                    doubleList.add(Double.parseDouble(s));
+                }
+                listDoubleList.add(doubleList);
+            }
+        }
+        return listDoubleList;
+    }
 }

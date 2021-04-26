@@ -28,53 +28,57 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws SphereException {
-        Util util = new Util();
-        String path = util.getFilePath("data/data.txt");
-        System.out.println(path);
 
-        FileNameValidator fileNameValidator = new FileNameValidator();
-        System.out.println(fileNameValidator.validateFile(path));
         DataReader reader = new DataReader();
-        List<String> list = reader.readFromFile(path);
+        List<String> list = reader.readFromFile("data/data.txt");
         for (String s : list) {
             System.out.println(s);
         }
-//
-//        DataParser parser = new DataParser();
-//        List<List<Double>> listList = parser.parseString(list);
-//        for (List<Double> l : listList) {
-//            System.out.println(l);
-//        }
-//
-//        List<Sphere> sphereList = new ArrayList<>();
-//        SphereFactory factory = new SphereFactory();
-//        for (List<Double> doubleList : listList) {
-//            Sphere sphere = factory.buildSphere(doubleList);
-//            sphereList.add(sphere);
-//        }
 
-//        SphereRepository repository = SphereRepository.getInstance();
-//        repository.addAll(sphereList);
-//        Specification specification = new RadiusSpecification(5.0, 0.10);
-//        List<Sphere> correctRadiusList = repository.query(specification);
-//        for (Sphere sphere : correctRadiusList) {
-//            System.out.println(sphere.getRadius() + "  " + sphere.getSphereId());
-//        }
+        DataParser parser = new DataParser();
+        List<List<Double>> listList = parser.parseString(list);
+        for (List<Double> l : listList) {
+            System.out.println(l);
+        }
+
+        List<Sphere> sphereList = new ArrayList<>();
+        SphereFactory factory = new SphereFactory();
+        for (List<Double> doubleList : listList) {
+            Sphere sphere = factory.buildSphere(doubleList);
+            sphereList.add(sphere);
+        }
+
+        SphereRepository repository = SphereRepository.getInstance();
+        repository.addAll(sphereList);
+        Specification specification = new RadiusSpecification(5.0, 0.10);
+        List<Sphere> correctRadiusList = repository.query(specification);
+        for (Sphere sphere : correctRadiusList) {
+            System.out.println(sphere.getRadius() + "  " + sphere.getSphereId());
+        }
 //
-//        SphereWarehouse warehouse = SphereWarehouse.getInstance();
-//        long id = correctRadiusList.get(0).getSphereId();
-//        warehouse.put(id,
-//                new ParametersOfSphere
-//                        (new CalculationServiceIml().calculateSurfaceArea(correctRadiusList.get(0)),
-//                                new CalculationServiceIml().calculateVolume(correctRadiusList.get(0))));
-//
-//
-//        System.out.println(warehouse.get(id));
-//        SphereObserverImpl observer = new SphereObserverImpl();
-//        SphereFactory factory1 = new SphereFactory();
-//
-//        observer.parametersChange(new SphereEvent(new SphereFactory));
-//
+        SphereWarehouse warehouse = SphereWarehouse.getInstance();
+        Sphere sphere = correctRadiusList.get(0);
+        long id = sphere.getSphereId();
+        warehouse.put(id,
+                new ParametersOfSphere
+                        (new CalculationServiceIml().calculateSurfaceArea(sphere),
+                                new CalculationServiceIml().calculateVolume(sphere)));
+
+
+        System.out.println(warehouse.get(id));
+
+
+        SphereObserver observer1 = new SphereObserverImpl();
+        observer1.parametersChange(new SphereEvent(SphereFactory.buildSphere(new Point(3, 3, 3), 4)));
+
+
+        for (Sphere sphere1 : sphereList){
+            System.out.println(sphere1.getRadius());
+        }
+
+        warehouse.put(8L, new ParametersOfSphere(55, 87));
+
+
 
     }
 }
