@@ -6,11 +6,6 @@ public class ParametersOfSphere {
     private double surfaceArea;
     private double volume;
 
-    public ParametersOfSphere(double surfaceArea, double volume) {
-        this.surfaceArea = surfaceArea;
-        this.volume = volume;
-    }
-
     public double getSurfaceArea() {
         return surfaceArea;
     }
@@ -48,9 +43,11 @@ public class ParametersOfSphere {
 
     @Override
     public String toString() {
-        return "ParametersOfSphere{" +
-                "surfaceArea=" + surfaceArea +
-                ", volume=" + volume +
-                '}';
-    }
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("ParametersOfSphere{");
+        stringBuilder.append("surfaceArea = ").append(surfaceArea);
+        stringBuilder.append(", volume = ").append(volume);
+        stringBuilder.append("}");
+        return stringBuilder.toString();
+          }
 }

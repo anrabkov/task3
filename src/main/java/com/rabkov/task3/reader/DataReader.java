@@ -17,12 +17,16 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 
+
 public class DataReader {
     static Logger logger = LogManager.getLogger();
     private FileNameValidator fileNameValidator;
 
-
     public List<String> readFromFile(String filePath) throws SphereException {
+        if (filePath == null){
+            logger.info("FilePath equal to null");
+            throw new SphereException ("FilePath equal to null");
+        }
         fileNameValidator = new FileNameValidator();
         Util util = new Util();
         String correctFilePath = util.getFilePath(filePath);

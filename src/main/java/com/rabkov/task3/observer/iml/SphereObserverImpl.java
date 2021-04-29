@@ -24,8 +24,8 @@ public class SphereObserverImpl implements SphereObserver {
         try {
             double surfaceArea = service.calculateSurfaceArea(sphere);
             double volume = service.calculateVolume(sphere);
-            ParametersOfSphere parameters = new ParametersOfSphere(surfaceArea, volume);
-            warehouse.put(sphereId, parameters);
+            warehouse.put(sphereId, surfaceArea, volume);
+            logger.info("Parameters of the sphere were changed successfully");
         } catch (SphereException e) {
             logger.error("warehouse didn't update", e.getCause());
         }

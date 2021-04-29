@@ -25,22 +25,15 @@ public class SphereWarehouse implements Warehouse<ParametersOfSphere> {
 
     @Override
     public Optional<ParametersOfSphere> get(Long id) throws SphereException {
-        if (id == null) {
-            throw new SphereException("Id cannot be equal to null");
-        }
         ParametersOfSphere parameters = map.get(id);
-        return parameters == null ? Optional.empty() : Optional.of(parameters);
+        return parameters != null ? Optional.of(parameters) : Optional.empty();
     }
 
     @Override
-    public void put(Long id, ParametersOfSphere parameters) throws SphereException {
-        if (id == null) {
-            throw new SphereException("Id cannot be equal to null");
-        }
-
-        if (parameters == null) {
-            throw new SphereException("Parameters of sphere cannot be equal to null");
-        }
+    public void put(Long id, double surfaceArea, double volume) throws SphereException {
+        ParametersOfSphere parameters = map.containsKey(id) ? map.get(id) : new ParametersOfSphere();
+        parameters.setSurfaceArea(surfaceArea);
+        parameters.setVolume(volume);
         map.put(id, parameters);
     }
 

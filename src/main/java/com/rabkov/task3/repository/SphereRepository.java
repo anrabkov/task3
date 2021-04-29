@@ -42,6 +42,7 @@ public class SphereRepository  {
         return sphereList.removeAll(spheres);
     }
 
+
     public List<Sphere> query(Specification specification) {
         List<Sphere> correctList = new ArrayList<>();
         for (Sphere sphere : sphereList){

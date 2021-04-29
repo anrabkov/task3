@@ -95,8 +95,13 @@ public class Sphere implements Observable {
         return result;
     }
 
-
-
-
-
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("Sphere{");
+        stringBuilder.append("point = ").append(point);
+        stringBuilder.append(", radius = ").append(radius);
+        stringBuilder.append("}");
+        return stringBuilder.toString();
+    }
 }

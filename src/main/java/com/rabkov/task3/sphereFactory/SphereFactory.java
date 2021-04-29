@@ -11,7 +11,10 @@ public class SphereFactory  {
 
     public static Sphere buildSphere(List<Double> list) throws SphereException {
         if (list.get(3)  == 0){
-            throw new SphereException("Radius can not be equal to 0");
+            throw new SphereException("Radius can't be equal to zero");
+        }
+        if (list.get(3) < 0){
+            throw new SphereException("Radius can't be less than zero");
         }
             Point point = new Point(list.get(0), list.get(1), list.get(2));
             Sphere sphere = new Sphere(point, list.get(3));
@@ -20,9 +23,13 @@ public class SphereFactory  {
 
     public static Sphere buildSphere(Point point, long radius) throws SphereException{
         if (radius == 0){
-            throw new SphereException("Radius can not be equal to 0");
+            throw new SphereException("Radius can not be equal to zero");
+        }
+        if (radius < 0){
+            throw new SphereException("Radius can't be less than zero");
         }
         Sphere sphere = new Sphere(point, radius);
         return sphere;
     }
 }
+

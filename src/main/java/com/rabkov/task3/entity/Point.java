@@ -36,4 +36,39 @@ public class Point {
         this.z = z;
     }
 
+    @Override
+    public int hashCode() {
+        int prime = 31;
+        int result = 1;
+        result = prime * result + Double.hashCode(x);
+        result = prime * result + Double.hashCode(y);
+        result = prime * result + Double.hashCode(z);
+
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == this){
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()){
+            return false;
+        }
+        Point point  = (Point) obj;
+        return Double.compare(this.x, point.x) == 0 && Double.compare(this.y, point.y) == 0
+                && Double.compare(this.z, point.z) == 0;
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("Point{");
+        stringBuilder.append("x = ").append(x);
+        stringBuilder.append(", y = ").append(y);
+        stringBuilder.append(", z = ").append(z);
+        stringBuilder.append("}");
+        return stringBuilder.toString();
+    }
 }
