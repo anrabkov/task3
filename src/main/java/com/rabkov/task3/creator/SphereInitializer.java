@@ -2,7 +2,7 @@ package com.rabkov.task3.creator;
 
 import com.rabkov.task3.entity.Sphere;
 import com.rabkov.task3.exception.SphereException;
-import com.rabkov.task3.repository.SphereRepository;
+import com.rabkov.task3.repository.iml.SphereRepositoryIml;
 import com.rabkov.task3.service.CalculationService;
 import com.rabkov.task3.service.iml.CalculationServiceIml;
 import com.rabkov.task3.warehouse.iml.SphereWarehouse;
@@ -15,7 +15,7 @@ public class SphereInitializer {
     static Logger logger = LogManager.getLogger();
 
     public void initializeRepository(Sphere sphere) {
-        SphereRepository repository = SphereRepository.getInstance();
+        SphereRepositoryIml repository = SphereRepositoryIml.getInstance();
         repository.add(sphere);
 
     }

@@ -8,7 +8,7 @@ import com.rabkov.task3.exception.SphereException;
 import com.rabkov.task3.observer.iml.SphereObserverImpl;
 import com.rabkov.task3.parser.DataParser;
 import com.rabkov.task3.reader.DataReader;
-import com.rabkov.task3.repository.SphereRepository;
+import com.rabkov.task3.repository.iml.SphereRepositoryIml;
 import com.rabkov.task3.repository.iml.IdSpecification;
 import com.rabkov.task3.repository.iml.RadiusSpecification;
 import com.rabkov.task3.sphereFactory.SphereFactory;
@@ -24,7 +24,7 @@ public class Main {
 
     public static void main(String[] args) throws SphereException {
         SphereInitializer sphereInitializer = new SphereInitializer();
-        SphereRepository repository = SphereRepository.getInstance();
+        SphereRepositoryIml repository = SphereRepositoryIml.getInstance();
         SphereWarehouse warehouse = SphereWarehouse.getInstance();
 
         DataReader reader = new DataReader();
