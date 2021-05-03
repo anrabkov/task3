@@ -1,6 +1,6 @@
 package com.rabkov.task3.entity;
 
-public class Point {
+public class Point implements Cloneable {
 
     private double x;
     private double y;
@@ -70,5 +70,17 @@ public class Point {
         stringBuilder.append(", z = ").append(z);
         stringBuilder.append("}");
         return stringBuilder.toString();
+    }
+
+    @Override
+    public Point clone() {
+        Point point = null;
+        try {
+            point = (Point) super.clone();
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+
+        return point;
     }
 }

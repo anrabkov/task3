@@ -14,7 +14,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
+
 
 
 public class DataReader {
@@ -37,8 +37,7 @@ public class DataReader {
 
             Path path = Paths.get(correctFilePath);
 
-            Stream<String> stringStream = Files.lines(path);
-            List<String> list = stringStream.collect(Collectors.toList());
+            List<String> list = Files.lines(path).collect(Collectors.toList());
             return list;
         } catch (InvalidPathException | IOException e) {
             throw new SphereException("Unable to open file: " + filePath, e);

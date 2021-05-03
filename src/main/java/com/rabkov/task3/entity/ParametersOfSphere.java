@@ -1,6 +1,6 @@
 package com.rabkov.task3.entity;
 
-public class ParametersOfSphere {
+public class ParametersOfSphere implements Cloneable {
     private double surfaceArea;
     private double volume;
 
@@ -47,5 +47,16 @@ public class ParametersOfSphere {
         stringBuilder.append(", volume = ").append(volume);
         stringBuilder.append("}");
         return stringBuilder.toString();
+    }
+
+    @Override
+    public ParametersOfSphere clone() {
+        ParametersOfSphere parameters = null;
+        try {
+            parameters = (ParametersOfSphere) super.clone();
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+        return parameters;
     }
 }

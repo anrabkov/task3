@@ -8,7 +8,7 @@ import com.rabkov.task3.observer.SphereObserver;
 
 import java.util.Objects;
 
-public class Sphere implements Observable {
+public class Sphere implements Cloneable, Observable {
 
     private long sphereId;
     private Point point;
@@ -103,5 +103,16 @@ public class Sphere implements Observable {
         stringBuilder.append(", radius = ").append(radius);
         stringBuilder.append("}");
         return stringBuilder.toString();
+    }
+
+    @Override
+    public Sphere clone() {
+        Sphere sphere = null;
+        try {
+            sphere = (Sphere) super.clone();
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+        return sphere;
     }
 }

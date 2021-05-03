@@ -43,4 +43,9 @@ public class FileNameValidatorTest {
         Assert.assertFalse(file.exists() && file.length() > 0);
     }
 
+    @Test
+    public void FileIsNotExist(){
+        File file = new File(util.getFilePath("data/data73.txt"));
+        Assert.assertFalse(file.exists());
+    }
 }
