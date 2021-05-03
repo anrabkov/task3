@@ -1,4 +1,5 @@
-package com.rabkov.task3.repository.iml;
+package com.rabkov.task3.repository.impl;
+
 import com.rabkov.task3.entity.Sphere;
 import com.rabkov.task3.repository.Specification;
 import com.rabkov.task3.repository.SphereRepository;
@@ -41,8 +42,8 @@ public class SphereRepositoryIml implements SphereRepository<Sphere> {
 
     public List<Sphere> query(Specification specification) {
         List<Sphere> correctList = new ArrayList<>();
-        for (Sphere sphere : sphereList){
-            if (specification.specify(sphere)){
+        for (Sphere sphere : sphereList) {
+            if (specification.specify(sphere)) {
                 correctList.add(sphere);
             }
         }
@@ -51,12 +52,12 @@ public class SphereRepositoryIml implements SphereRepository<Sphere> {
 
     public List<Sphere> queryStream(Specification specification) {
         List<Sphere> correctList = sphereList.stream()
-                .filter(specification ::specify)
+                .filter(specification::specify)
                 .collect(Collectors.toList());
         return correctList;
     }
 
-    public List<Sphere> sort(Comparator<? super Sphere> comparator){
+    public List<Sphere> sort(Comparator<? super Sphere> comparator) {
         return sphereList.stream().sorted(comparator).collect(Collectors.toList());
     }
 }

@@ -1,4 +1,4 @@
-package test.rabkov.task3.validatorTest;
+package test.rabkov.task3.validator;
 
 import com.rabkov.task3.exception.SphereException;
 import com.rabkov.task3.validator.FileNameValidator;
@@ -43,9 +43,4 @@ public class FileNameValidatorTest {
         Assert.assertFalse(file.exists() && file.length() > 0);
     }
 
-    @Test
-    public void FileIsNotExist(){
-        File file = new File(util.getFilePath("data/data73.txt"));
-        Assert.assertFalse(file.exists());
-    }
 }

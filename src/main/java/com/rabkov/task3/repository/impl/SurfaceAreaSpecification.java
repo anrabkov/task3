@@ -1,10 +1,9 @@
-package com.rabkov.task3.repository.iml;
+package com.rabkov.task3.repository.impl;
 
-import com.rabkov.task3.entity.ParametersOfSphere;
 import com.rabkov.task3.entity.Sphere;
 import com.rabkov.task3.repository.Specification;
 import com.rabkov.task3.service.CalculationService;
-import com.rabkov.task3.service.iml.CalculationServiceIml;
+import com.rabkov.task3.service.impl.CalculationServiceIml;
 
 public class SurfaceAreaSpecification implements Specification {
     private double maxArea;

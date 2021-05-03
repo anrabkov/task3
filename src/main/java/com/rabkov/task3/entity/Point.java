@@ -49,13 +49,13 @@ public class Point {
 
     @Override
     public boolean equals(Object obj) {
-        if (obj == this){
+        if (obj == this) {
             return true;
         }
-        if (obj == null || getClass() != obj.getClass()){
+        if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        Point point  = (Point) obj;
+        Point point = (Point) obj;
         return Double.compare(this.x, point.x) == 0 && Double.compare(this.y, point.y) == 0
                 && Double.compare(this.z, point.z) == 0;
     }

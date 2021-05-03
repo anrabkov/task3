@@ -1,6 +1,6 @@
 package com.rabkov.task3.exception;
 
-public class SphereException extends Exception{
+public class SphereException extends Exception {
     public SphereException() {
     }
 

@@ -1,15 +1,13 @@
-package test.rabkov.task3.readerTest;
+package test.rabkov.task3.reader;
 
 import com.rabkov.task3.exception.SphereException;
 import com.rabkov.task3.reader.DataReader;
-import com.rabkov.task3.validator.FileNameValidator;
 import org.junit.Test;
 import org.testng.Assert;
 
 import org.testng.annotations.BeforeClass;
 import test.rabkov.task3.util.Util;
 
-import java.time.Year;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +18,7 @@ public class DataReaderTest {
     private Util util;
 
     @BeforeClass
-    public void SetUp(){
+    public void SetUp() {
         reader = new DataReader();
         util = new Util();
     }
@@ -47,9 +45,8 @@ public class DataReaderTest {
     }
 
 
-
     @Test
-    public void FileEmptyTest(){
+    public void FileEmptyTest() {
         String emptyFile = util.getFilePath("data/empty.txt");
 
         Assert.assertThrows(SphereException.class, () -> reader.readFromFile(emptyFile));

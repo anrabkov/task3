@@ -10,7 +10,7 @@ import java.nio.charset.StandardCharsets;
 public class Util {
     static Logger logger = LogManager.getLogger();
 
-    public String getFilePath(String filePath){
+    public String getFilePath(String filePath) {
         URL url = getClass().getClassLoader().getResource(filePath);
         String correctPath = URLDecoder.decode(url.getPath(), StandardCharsets.UTF_8).substring(1);
         logger.info("Correct file exist: " + correctPath);

@@ -12,6 +12,6 @@ public class SphereEvent extends EventObject {
 
     @Override
     public Sphere getSource() {
-        return (Sphere)super.getSource();
+        return (Sphere) super.getSource();
     }
 }

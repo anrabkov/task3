@@ -19,7 +19,7 @@ public class FileNameValidator {
             return false;
         }
         File file = new File(path);
-        if (!file.exists()){
+        if (!file.exists()) {
             return false;
         }
         return file.exists() && file.length() > 0;

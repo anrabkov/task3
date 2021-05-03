@@ -2,10 +2,10 @@ package com.rabkov.task3.creator;
 
 import com.rabkov.task3.entity.Sphere;
 import com.rabkov.task3.exception.SphereException;
-import com.rabkov.task3.repository.iml.SphereRepositoryIml;
+import com.rabkov.task3.repository.impl.SphereRepositoryIml;
 import com.rabkov.task3.service.CalculationService;
-import com.rabkov.task3.service.iml.CalculationServiceIml;
-import com.rabkov.task3.warehouse.iml.SphereWarehouse;
+import com.rabkov.task3.service.impl.CalculationServiceIml;
+import com.rabkov.task3.warehouse.impl.SphereWarehouse;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -30,7 +30,5 @@ public class SphereInitializer {
         } catch (SphereException e) {
             logger.error("Warehouse wasn't filled with Spheres" + sphere, e);
         }
-
     }
-
 }

@@ -1,9 +1,9 @@
-package com.rabkov.task3.repository.iml;
+package com.rabkov.task3.repository.impl;
 
 import com.rabkov.task3.entity.Sphere;
 import com.rabkov.task3.repository.Specification;
 import com.rabkov.task3.service.CalculationService;
-import com.rabkov.task3.service.iml.CalculationServiceIml;
+import com.rabkov.task3.service.impl.CalculationServiceIml;
 
 public class VolumeSpecification implements Specification {
 
@@ -19,7 +19,7 @@ public class VolumeSpecification implements Specification {
     public boolean specify(Sphere sphere) {
         CalculationService service = new CalculationServiceIml();
         double volume = service.calculateVolume(sphere);
-        boolean result = volume >=minVolume && volume <=maxVolume;
+        boolean result = volume >= minVolume && volume <= maxVolume;
         return result;
     }
 }

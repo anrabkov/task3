@@ -1,10 +1,10 @@
-package test.rabkov.task3.serviceTest;
+package test.rabkov.task3.service;
 
 import com.rabkov.task3.entity.Point;
 import com.rabkov.task3.entity.Sphere;
 import com.rabkov.task3.exception.SphereException;
 import com.rabkov.task3.service.CalculationService;
-import com.rabkov.task3.service.iml.CalculationServiceIml;
+import com.rabkov.task3.service.impl.CalculationServiceIml;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;

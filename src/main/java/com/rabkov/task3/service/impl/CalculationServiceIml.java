@@ -1,4 +1,4 @@
-package com.rabkov.task3.service.iml;
+package com.rabkov.task3.service.impl;
 
 import com.rabkov.task3.entity.Sphere;
 import com.rabkov.task3.service.CalculationService;

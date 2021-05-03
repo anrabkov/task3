@@ -1,4 +1,4 @@
-package com.rabkov.task3.warehouse.iml;
+package com.rabkov.task3.warehouse.impl;
 
 import com.rabkov.task3.entity.ParametersOfSphere;
 import com.rabkov.task3.exception.SphereException;
@@ -39,7 +39,7 @@ public class SphereWarehouse implements Warehouse<ParametersOfSphere> {
 
     @Override
     public void remove(Long id) throws SphereException {
-        if (id == null){
+        if (id == null) {
             throw new SphereException("Id cannot be equal to null");
         }
         map.remove(id);

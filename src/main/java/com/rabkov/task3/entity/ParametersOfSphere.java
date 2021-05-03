@@ -1,7 +1,5 @@
 package com.rabkov.task3.entity;
 
-import java.util.Objects;
-
 public class ParametersOfSphere {
     private double surfaceArea;
     private double volume;
@@ -49,5 +47,5 @@ public class ParametersOfSphere {
         stringBuilder.append(", volume = ").append(volume);
         stringBuilder.append("}");
         return stringBuilder.toString();
-          }
+    }
 }

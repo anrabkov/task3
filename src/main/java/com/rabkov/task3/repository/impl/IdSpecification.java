@@ -1,4 +1,4 @@
-package com.rabkov.task3.repository.iml;
+package com.rabkov.task3.repository.impl;
 
 import com.rabkov.task3.entity.Sphere;
 import com.rabkov.task3.repository.Specification;

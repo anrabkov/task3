@@ -4,9 +4,10 @@ public class GeneratorId {
 
     private static long counter;
 
-    private GeneratorId(){}
+    private GeneratorId() {
+    }
 
-    public static long generateId(){
+    public static long generateId() {
         return ++counter;
     }
 }
