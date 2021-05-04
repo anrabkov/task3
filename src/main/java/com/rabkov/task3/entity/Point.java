@@ -80,7 +80,6 @@ public class Point implements Cloneable {
         } catch (CloneNotSupportedException e) {
             e.printStackTrace();
         }
-
         return point;
     }
 }

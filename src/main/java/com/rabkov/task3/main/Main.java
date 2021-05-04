@@ -29,15 +29,10 @@ public class Main {
 
         DataReader reader = new DataReader();
         List<String> list = reader.readFromFile("data/data.txt");
-        for (String s : list) {
-            logger.info(s);
-        }
 
         DataParser parser = new DataParser();
         List<List<Double>> listList = parser.parseString(list);
-        for (List<Double> l : listList) {
-            logger.info(l);
-        }
+
 
         SphereFactory factory = new SphereFactory();
         for (List<Double> doubleList : listList) {
@@ -50,11 +45,11 @@ public class Main {
         List<Sphere> sphereListToId = repository.query(new IdSpecification(2));
         Sphere sphereToId = sphereListToId.get(0);
         ParametersOfSphere parameters = warehouse.get(sphereToId.getSphereId()).orElse(new ParametersOfSphere());
-        logger.info("SurfaceArea was equal to " + parameters.getSurfaceArea() + ",    " +
-                "Volume was equal to  " + parameters.getVolume());
+        logger.info("Parameters of the sphere before changing the radius: surfaceArea =  " + parameters.getSurfaceArea() + ",    " +
+                ", volume = " + parameters.getVolume());
         sphereToId.setRadius(25);
-        logger.info("SurfaceArea became equal to " + parameters.getSurfaceArea() + ",    " +
-                "Volume became equal to  " + parameters.getVolume());
+        logger.info("Parameters of the sphere after changing the radius: surfaceArea = " + parameters.getSurfaceArea() + ",    " +
+                ", volume = " + parameters.getVolume());
 
 
         List<Sphere> listToRadius = repository.query(new RadiusSpecification(15, 0.1));
